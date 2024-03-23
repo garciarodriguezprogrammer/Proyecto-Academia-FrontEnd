@@ -13,8 +13,8 @@ export function AdminRegisterForm() {  //He añadido el Admin
         userName: "",
         email: "",
         password: "",
-        phoneNumber: "",  //esto lo añadí
-        address: ""       //esto lo añadí
+        phoneNumber: "",  
+        address: ""       
     })
     //Evento para capturar los datos del formulario y guardarlos dentro de formData
     const handleChange = (event) => {

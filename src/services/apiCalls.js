@@ -1,12 +1,32 @@
 import axios from "axios";
 
 
-export const loginCall = async(loginData) => {
+// export const loginCall = async(loginData) => {
+//     try {
+//         const response = await axios.post("http://localhost:5000/api/auth/login", loginData)
+//         return response.data;
+//     } catch (error) {
+//         console.log("Error:"+ error)
+//     }
+// }
+
+export const loginCall = async (loginData) => {
     try {
-        const response = await axios.post("http://localhost:5000/api/auth/login", loginData)
+        const response = await axios.post("http://localhost:5000/api/auth/login", loginData);
+        
+        // Verificar el token recibido en la respuesta
+        if (response.data.token && typeof response.data.token === 'string' && response.data.token.trim() !== '') {
+            console.log('El token recibido es válido:', response.data.token);
+            // Aquí puedes continuar con el flujo de tu aplicación
+            // por ejemplo, almacenar el token en el almacenamiento local
+        } else {
+            console.log('El token recibido no es válido o está vacío:', response.data.token);
+            // Aquí puedes manejar el caso en que el token no sea válido, como mostrar un mensaje de error al usuario.
+        }
+
         return response.data;
     } catch (error) {
-        console.log("Error:"+ error)
+        console.log("Error: " + error);
     }
 }
 

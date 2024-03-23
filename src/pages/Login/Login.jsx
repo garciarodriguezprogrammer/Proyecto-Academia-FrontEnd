@@ -26,7 +26,7 @@ export function LoginForm() {
         event.preventDefault();
         loginCall(loginData)
             .then((res) => {
-                console.log(res)
+                // console.log(res)
                 if (!res) {
                     errorRef.current.style.display = "block"
                     navegar("/login");
@@ -34,6 +34,7 @@ export function LoginForm() {
                 } else {
                     const decodedToken = jwtDecode(res.token)                
                     const isStudent = decodedToken.rol.includes("student") //He cambiado user por student
+                    console.log(decodedToken)
                     const isTeacher = decodedToken.rol.includes("teacher") //he cambiado artist por teacher
                     const isAdmin = decodedToken.rol.includes("admin")
                     //Mediante dispatch guardamos el token y el id
