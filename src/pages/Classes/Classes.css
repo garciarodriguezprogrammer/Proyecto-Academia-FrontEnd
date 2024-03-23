@@ -1,0 +1,38 @@
+/* Estilos base de la tarjeta */
+.otherCard {
+    border: 1px solid #f0f0f0;
+    border-radius: 1.5rem;
+    background-color: #fff;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    margin-bottom: 2rem; /* Margen inferior para separar las tarjetas */
+  }
+  
+  /* Estilos al pasar el ratón por encima */
+  .otherCard:hover {
+    transform: scale(1.05);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Estilos para el contenido de la tarjeta */
+  .card .card-body {
+    padding: 1.5rem;
+  }
+  
+  .card .card-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #333;
+    text-align: center;
+  }
+  
+  .card .card-text {
+    color: #666;
+  }
+  
+  /* Media queries para hacer las tarjetas responsivas */
+  @media (max-width: 768px) {
+    .card {
+      width: 100%; /* Ajustar el ancho de la tarjeta al 100% en dispositivos pequeños */
+    }
+  }

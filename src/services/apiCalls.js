@@ -60,12 +60,21 @@ export const myInscriptionsCall = async(token, id) => {
     }
 } 
 
-// export const myAppointmentsCallAdmin = async(token) => {
-//     const res = await axios.get("http://localhost:3000/api/appointments/getAppointments", {
-//         headers: {"Authorization": `Bearer ${token}`}
-//     })
-//     return res.data
-// }
+
+export const setInscriptionCall = async (token, studentId, classId) => {
+    try {
+        const res = await axios.post("http://localhost:5000/api/inscription", {
+            studentId: studentId, 
+            classId: classId
+        }, {
+            headers: {"Authorization": `Bearer ${token}`}
+        });
+        return res.data;
+    } catch (error) {
+        console.error("Error al establecer la inscripción:", error);
+        throw error;
+    }
+}
 
 
 

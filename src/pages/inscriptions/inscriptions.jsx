@@ -2,23 +2,15 @@ import { myInscriptionsCall } from "../../services/apiCalls"
 import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
 
+
 export const Inscriptions = () => {
 
     const token = useSelector(state => state.auth.token)
     const id = useSelector(state => state.auth.userId)
     console.log("Este es el id "+ id)
 
-    const [inscriptions, setInscriptions] = useState([]); //He añadido esto
+    const [inscriptions, setInscriptions] = useState([]); 
 
-    // useEffect(() => {
-    //     const getInscriptions = async() => {
-    //         const res = await myInscriptionsCall(token, id);
-    //         console.log(res)
-    //     }
-    //     getInscriptions()
-    // }, [token,id]) //he añadido token
-
-    //He añadido esto
     useEffect(() => {
         const getInscriptions = async () => {
             try {
