@@ -16,7 +16,6 @@ export const loginCall = async (loginData) => {
         
         // Verificar el token recibido en la respuesta
         if (response.data.token && typeof response.data.token === 'string' && response.data.token.trim() !== '') {
-            console.log('El token recibido es válido:', response.data.token);
             // Aquí puedes continuar con el flujo de tu aplicación
             // por ejemplo, almacenar el token en el almacenamiento local
         } else {
@@ -39,27 +38,27 @@ export const registerCall = async(formData, rol) => {
     }
 }
 
-// export const myAppointmentsCall = async(token, id) => {
-//     try {
-//         const response = await axios.get("http://localhost:3000/api/appointments/getAppointmentByClient/" + id, {
-//             headers: {"Authorization": `Bearer ${token}`}
-//         })        
-//         return response.data   
-//     } catch (error) {
-//         console.error("Error:" + error) 
-//     }
-// } 
+export const myClassesCall = async(token) => {
+    try {
+        const response = await axios.get("http://localhost:5000/api/class/", {
+            headers: {"Authorization": `Bearer ${token}`}
+        })        
+        return response.data   
+    } catch (error) {
+        console.error("Error:" + error) 
+    }
+} 
 
-// export const myAppointmentsCallArtist = async(token, id) => {
-//     try {
-//         const response = await axios.get("http://localhost:3000/api/appointments/getAppointmentByArtist/" + id, {
-//             headers: {"Authorization": `Bearer ${token}`}
-//         })        
-//         return response.data   
-//     } catch (error) {
-//         console.error("Error:" + error) 
-//     }
-// } 
+export const myInscriptionsCall = async(token, id) => {
+    try {
+        const response = await axios.get("http://localhost:5000/api/inscription/byStudent/" + id, {
+            headers: {"Authorization": `Bearer ${token}`}
+        })        
+        return response.data   
+    } catch (error) {
+        console.error("Error:" + error) 
+    }
+} 
 
 // export const myAppointmentsCallAdmin = async(token) => {
 //     const res = await axios.get("http://localhost:3000/api/appointments/getAppointments", {
