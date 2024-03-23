@@ -1,0 +1,50 @@
+
+.appointment-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 250px;
+    height: 200px;
+    border: 2px solid #000;
+    border-radius: 15px;
+    margin: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    color: #000;
+    font-family: "Arial", sans-serif;
+    text-align: center;
+    position: relative;
+  }
+  
+  .appointment-card h2 {
+    font-size: 18px;
+    margin-bottom: 5px;
+    overflow: hidden;
+    word-wrap: break-word;
+    text-overflow: ellipsis;
+  }
+ 
+  .appointment-card::before,
+  .appointment-card::after {
+    content: "";
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #000;
+  }
+  
+  .appointment-card::before {
+    top: 5px;
+    left: 5px;
+  }
+  
+  .appointment-card::after {
+    bottom: 5px;
+    right: 5px;
+  }
+  
+  .card-content {
+    margin-top: 2.5em;
+  }
+ 
