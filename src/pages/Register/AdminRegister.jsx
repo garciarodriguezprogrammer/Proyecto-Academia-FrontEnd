@@ -42,7 +42,7 @@ export function AdminRegisterForm() {  //He añadido el Admin
     }
 
     return (
-        <div className="container d-flex justify-content-center align-items-center" style={{ height: '100vh' }}>
+        <div className="container d-flex justify-content-center align-items-center" style={{ height: '80vh' }}>
             <div className="row">
                 <div className="col">
                     {/* El siguiente div es para el error al registrarse */}

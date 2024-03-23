@@ -13,8 +13,8 @@ export function TeacherRegisterForm() {  //He añadido el Teacher
         userName: "",
         email: "",
         password: "",
-        phoneNumber: "",  //esto lo añadí
-        address: ""       //esto lo añadí
+        phoneNumber: "",  
+        address: ""       
     })
     //Evento para capturar los datos del formulario y guardarlos dentro de formData
     const handleChange = (event) => {
@@ -42,7 +42,7 @@ export function TeacherRegisterForm() {  //He añadido el Teacher
     }
 
     return (
-        <div className="container d-flex justify-content-center align-items-center" style={{ height: '100vh' }}>
+        <div className="container d-flex justify-content-center align-items-center" style={{ height: '80vh' }}>
             <div className="row">
                 <div className="col">
                     {/* El siguiente div es para el error al registrarse */}

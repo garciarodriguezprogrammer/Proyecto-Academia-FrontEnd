@@ -44,7 +44,7 @@ export const Classes = () => {
     }
     
     return (
-        <div className="container">
+        <div className="container"> 
             <div className="text-center my-4">
     <h4 className="font-weight-bold">Seleccione la clase en la que se desee inscribir</h4></div>
             {/* <h4>Seleccione la clase en la que se desee inscribir</h4> */}

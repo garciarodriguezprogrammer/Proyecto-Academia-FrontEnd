@@ -1,0 +1,10 @@
+.footer-container {
+    position: relative; /* Establecer la posición relativa */
+    min-height: 100vh; /* Altura mínima de la ventana gráfica */
+  }
+  
+  footer {
+    position: fixed; /* Establecer la posición absoluta */
+    bottom: 0; /* Fijar el pie de página en la parte inferior */
+    width: 100%; /* Asegurar que el pie de página ocupe todo el ancho */
+  }
