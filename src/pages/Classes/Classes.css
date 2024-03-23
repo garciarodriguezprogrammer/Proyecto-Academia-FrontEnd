@@ -28,8 +28,7 @@
   
   .card .card-text {
     color: #666;
-  }
-  
+  } 
   /* Media queries para hacer las tarjetas responsivas */
   @media (max-width: 768px) {
     .card {
