@@ -6,7 +6,8 @@ import { RegisterForm } from "../Register/Register"
 import { AdminRegisterForm } from "../Register/AdminRegister"
 import { TeacherRegisterForm } from "../Register/TeacherRegister"
 import { Classes } from "../Classes/Classes"
-import { Inscriptions } from "../inscriptions/inscriptions"
+import { Inscriptions } from "../inscriptions/Inscriptions"
+
 
 
 export const Body = () => {
