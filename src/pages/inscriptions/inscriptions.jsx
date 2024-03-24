@@ -1,4 +1,4 @@
-import { myInscriptionsCall } from "../../services/apiCalls"
+import { getStudentId, myInscriptionsCall } from "../../services/apiCalls"
 import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
 
@@ -7,22 +7,37 @@ export const Inscriptions = () => {
 
     const token = useSelector(state => state.auth.token)
     const id = useSelector(state => state.auth.userId)
-    console.log("Este es el id "+ id)
+    console.log("Este es el id " + id)
 
-    const [inscriptions, setInscriptions] = useState([]); 
+    const [inscriptions, setInscriptions] = useState([]);
+    const [studentId, setStudentId] = useState(null)
+    useEffect(() => {
+        const fetchStudentId = async () => {
+            try {
+                const data = await getStudentId(id, token)
+                console.log(data.id)
+                setStudentId(data.id)
+            } catch (error) {
+                console.error("Error recuperando el studentId")
+            }
+        }
+        fetchStudentId()
+    }, [token])
 
     useEffect(() => {
         const getInscriptions = async () => {
-            try {
-                const res = await myInscriptionsCall(token, id);
-                setInscriptions(res);
-            } catch (error) {
-                console.error("Error al obtener las inscripciones:", error);
+            if (token && studentId) {
+                try {
+                    const res = await myInscriptionsCall(token, studentId);
+                    setInscriptions(res);
+                } catch (error) {
+                    console.error("Error al obtener las inscripciones:", error);
+                }
             }
         };
 
         getInscriptions();
-    }, [token, id]);
+    }, [token, studentId]);
 
     return (
         <div className="container">

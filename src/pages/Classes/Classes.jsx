@@ -1,4 +1,4 @@
-import { myClassesCall } from "../../services/apiCalls"
+import { getStudentId, myClassesCall } from "../../services/apiCalls"
 import { useEffect, useState} from "react"
 import { useSelector } from "react-redux"
 import { setInscriptionCall } from "../../services/apiCalls";
@@ -11,12 +11,24 @@ export const Classes = () => {
     const token = useSelector(state => state.auth.token)
     const id = useSelector(state => state.auth.userId)
     const [classes, setClasses] = useState(null)
+    const [studentId, setStudentId] = useState(null)
+    useEffect(() => {
+        const fetchStudentId = async () => {
+            try {
+                const data = await getStudentId(id, token)
+                console.log(data.id)
+                setStudentId(data.id)
+            } catch (error) {
+                console.error("Error al obtener el id de estudiante")
+            }
+        }
+        fetchStudentId()
+    }, [token])
  
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const data = await myClassesCall(token);
-                console.log(data)
                 setClasses(data);
             } catch (error) {
                 console.error("Error al obtener las clases:", error);
@@ -29,8 +41,7 @@ export const Classes = () => {
     const handleInscription = async(classId) => {
         if(window.confirm("¿Confirma que desea inscribirse a esta clase?")){
             try {
-                const data = await setInscriptionCall(token, id, classId);
-                console.log(data)
+                const data = await setInscriptionCall(token, studentId, classId);
                 setSuccessMessage("Su inscripción se ha realizado exitosamente")
                 const updatedClasses = classes.filter(clase => clase.id !== classId)
                 setClasses(updatedClasses);
@@ -42,12 +53,12 @@ export const Classes = () => {
             }  
         }
     }
+
     
     return (
         <div className="container"> 
             <div className="text-center my-4">
     <h4 className="font-weight-bold">Seleccione la clase en la que se desee inscribir</h4></div>
-            {/* <h4>Seleccione la clase en la que se desee inscribir</h4> */}
             {successMessage && (<div className="alert alert-success" role="alert">{successMessage}</div>)}           
             <div className="row">
                 {classes && classes.map((clase, index) => (
@@ -66,3 +77,5 @@ export const Classes = () => {
         </div>
     );
 }
+
+

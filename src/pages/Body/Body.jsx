@@ -7,6 +7,8 @@ import { AdminRegisterForm } from "../Register/AdminRegister"
 import { TeacherRegisterForm } from "../Register/TeacherRegister"
 import { Classes } from "../Classes/Classes"
 import { Inscriptions } from "../inscriptions/Inscriptions"
+import { AdminClasses } from "../adminClasses/adminClasses"
+import { CreateClasses } from "../adminClasses/CreateClasses"
 
 
 
@@ -23,6 +25,8 @@ export const Body = () => {
                 <Route path="/teacherRegister/" element={<TeacherRegisterForm />}></Route>
                 <Route path="/classes/" element={<Classes />}></Route>
                 <Route path="/myInscriptions/" element={<Inscriptions/>}></Route>
+                <Route path="/adminClasses/" element={<AdminClasses/>}></Route>
+                <Route path="/createClasses/" element={<CreateClasses/>}></Route>
 
             </Routes>
         </>
