@@ -22,7 +22,7 @@ export const Inscriptions = () => {
             }
         }
         fetchStudentId()
-    }, [token])
+    }, [token, id])
 
     useEffect(() => {
         const getInscriptions = async () => {
@@ -41,28 +41,24 @@ export const Inscriptions = () => {
 
     return (
         <div className="container">
-{/* esto es nuevo */}
-{inscriptions.length === 0 ? (
-                <p>Aun no te has inscrito a una clase.</p>
-            ) : (
-
             <div className="row">
-                {inscriptions.map((inscription, index) => (
-                    <div key={index} className="col-md-4 mb-4">
-                        <div className="card">
-                            <div className="card-body">
-                                <h5 className="card-title">{inscription.dance}</h5>
-                                <p className="card-text">Día: {inscription.day}</p>
-                                <p className="card-text">Hora de inicio: {inscription.startTime}</p>
-                                <p className="card-text">Hora de fin: {inscription.endTime}</p>
+                {inscriptions && inscriptions.length > 0 ? (
+                    inscriptions.map((inscription, index) => (
+                        <div key={index} className="col-md-4 mb-4">
+                            <div className="card">
+                                <div className="card-body">
+                                    <h5 className="card-title">{inscription.dance}</h5>
+                                    <p className="card-text">Día: {inscription.day}</p>
+                                    <p className="card-text">Hora de inicio: {inscription.startTime}</p>
+                                    <p className="card-text">Hora de fin: {inscription.endTime}</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                ))}
+                    ))
+                ) : (
+                <p>No tiene inscripciones</p>
+                )}
             </div>
-            // este paréntesis y llaves es nuevo
-            )}
-
         </div>
     );
-};
+}

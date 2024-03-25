@@ -89,6 +89,19 @@ export const getStudentId = async (userId, token) => {
     }
 }
 
+export const getTeacherIdCall = async (userId, token) => {
+    try {
+        const res = await axios.get("http://localhost:5000/api/teachers/getTeacherId/" + userId,
+            {
+                headers: { "Authorization": `Bearer ${token}` }
+            });
+        return res.data;
+    } catch (error) {
+        console.error("Error al recuperar el id de student:", error);
+        throw error;
+    }
+}
+
 export const deleteClassCall = async(id, token) => {
     try {
         const response = await axios.delete("http://localhost:5000/api/class/" + id, {
@@ -101,19 +114,6 @@ export const deleteClassCall = async(id, token) => {
     }
 }
 
-// export const createClassCall = async (token, classesData) => {
-//     try {
-//         const res = await axios.post("http://localhost:5000/api/class", {
-//            classesData
-//         }, {
-//             headers: { "Authorization": `Bearer ${token}` }
-//         });
-//         return res.data;
-//     } catch (error) {
-//         console.error("Error al establecer la inscripción:", error);
-//         throw error;
-//     }
-// }
 
 export const createClassCall = async (token, classesData) => {
     try {
@@ -169,6 +169,17 @@ export const UpdateUserCall = async(token, id, formData) => {
     }
 }
 
+export const GetTeachersCall = async(token) => {
+    try {
+        const response = await axios.get("http://localhost:5000/api/teachers", {
+            headers: {"Authorization": `Bearer ${token}`}
+        })
+        return response.data
+    } catch (error) {
+        console.error("Error:" + error)
+    }
+}
+
 // export default {loginCall}
 
 // export const getArtistById = async(token, id) => {
@@ -184,18 +195,6 @@ export const UpdateUserCall = async(token, id, formData) => {
 // }
 
 
-
-
-// export const GetArtists = async(token) => {
-//     try {
-//         const response = await axios.get("http://localhost:3000/api/artist/getArtists/", {
-//             headers: {"Authorization": `Bearer ${token}`}
-//         })
-//         return response.data
-//     } catch (error) {
-//         console.error("Error:" + error)
-//     }
-// }
 
 // export const GuardarCita = async(datosCita, token) => {
 //     try {

@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
-import { createClassCall } from '../../services/apiCalls'; // Importa la función para llamar a la API
+import React, { useState, useEffect } from 'react';
+import { GetTeachersCall, createClassCall, getTeacherIdCall } from '../../services/apiCalls'; // Importa la función para llamar a la API
 import { useSelector } from 'react-redux';
+
+
 
 export const CreateClasses = () => {
     const token = useSelector(state => state.auth.token)
@@ -9,11 +11,37 @@ export const CreateClasses = () => {
     const [day, setDay] = useState('');
     const [startTime, setStartTime] = useState('');
     const [endTime, setEndTime] = useState('');
-    const [teacherId, setTeacherId] = useState(1); // Supongamos que el ID del profesor es 1, puedes cambiarlo según tus necesidades
+    const [teacherId, setTeacherId] = useState(); // Supongamos que el ID del profesor es 1, puedes cambiarlo según tus necesidades
+    const [teachers, setTeachers] = useState([])
+    const [userId, setUserId] = useState("")
+
+
+    useEffect(() => {
+        if (userId) {
+            const fetchStudentId = async () => {
+                try {
+                    const data = await getTeacherIdCall(userId, token)
+                    console.log(data.id)
+                    setTeacherId(data.id)
+                } catch (error) {
+                    console.error("Error recuperando el teacherId")
+                }
+            }
+            fetchStudentId()
+        }
+    }, [token])
+
+    useEffect(() => {
+        GetTeachersCall(token)
+            .then((teachers) => {
+                setTeachers(teachers)
+            })
+    }, [])
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
+            console.log("esto es teacher id " + teacherId)
             // Llama a la función para crear la clase con los datos del estado
             const res = await createClassCall(token, { dance, day, startTime, endTime, teacherId });
             console.log(res)
@@ -45,8 +73,13 @@ export const CreateClasses = () => {
                     <input type="time" className="form-control" value={endTime} onChange={(e) => setEndTime(e.target.value)} required />
                 </div>
                 <div className="form-group">
-                    <label>IdProfesor:</label>
-                    <input type="number" className="form-control" value={teacherId} onChange={(e) => setTeacherId(e.target.value)} required />
+                    <select name="id" id="id" onChange={(e) => setUserId(e.target.value)}>
+                        {teachers && teachers.map((teacher) => (
+                            <option value={teacher.id} key={teacher.id}>
+                                {teacher.userName}
+                            </option>
+                        ))}
+                    </select>
                 </div>
                 {/* El teacherId se establece como constante, pero podrías agregar lógica para seleccionar un profesor */}
                 <button type="submit" className="btn btn-primary">Crear Clase</button>

@@ -31,24 +31,13 @@ export function LoginForm() {
                     navegar("/login");
                     return null;
                 } else {
-                    const decodedToken = jwtDecode(res.token)               
-                    const isStudent = decodedToken.rol.includes("student") //He cambiado user por student
-                    const isTeacher = decodedToken.rol.includes("teacher") //he cambiado artist por teacher
-                    const isAdmin = decodedToken.rol.includes("admin")
-                    //Mediante dispatch guardamos el token y el id
-                    console.log(decodedToken.id)
+                    const decodedToken = jwtDecode(res.token) 
                     dispatch(setCredentials({
                         token: res.token,
                         userId: decodedToken.id
                     }))
+                    navegar("/profile")
                     
-                    if (isStudent) {
-                        navegar("/profile")
-                    } else if (isTeacher) {
-                        navegar("/profile")
-                    } else if (isAdmin) {
-                        navegar("/profile")
-                    }
                 }
             })
 
