@@ -1,10 +1,8 @@
 import { useEffect, useState } from 'react'
-import './AllUsers.css'
 import { BringAllUsers } from '../../services/apiCalls'
 import { AllUsersCard } from '../../Components/AllUsersCard/AllUsersCard'
-import { AdminNavBar } from '../../Components/NavBar/adminNavBar'
 import "./AllUsers.css"
-import { DeleteUsers } from '../../services/apiCalls'
+//import { DeleteUsers } from '../../services/apiCalls'
 import { useSelector } from "react-redux" //Esto es para recuperar datos del estado de redux AHORA
 
 
@@ -32,7 +30,6 @@ export const AllUsers = () => {
 
     return (
         <>
-        <AdminNavBar/>
         <div className="miDiv">
             <div className="citasContainer">
                 {users.length > 0 && (

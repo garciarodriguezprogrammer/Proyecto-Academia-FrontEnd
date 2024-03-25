@@ -127,18 +127,25 @@ export const createClassCall = async (token, classesData) => {
     }
 }
 
+export const BringAllUsers = async(token) => {
+    const res = await axios.get("http://localhost:5000/api/users", {
+        headers: {"Authorization": `Bearer ${token}`}
+    })
+    return res.data
+}
 
-// export const DeleteUsers = async(token, id) => {
-//     try {
-//         const response = await axios.delete("http://localhost:3000/api/users/deleteUserById/" + id, {
-//             headers: {"Authorization": `Bearer ${token}`}
-//         })
-//         console.log(response.data)
-//         return response.data
-//     } catch (error) {
-//         console.error("Error:" + error)
-//     }
-// }
+
+export const DeleteUsers = async(token, id) => {
+    try {
+        const response = await axios.delete("http://localhost:5000/api/users/" + id, {
+            headers: {"Authorization": `Bearer ${token}`}
+        })
+        console.log(response.data)
+        return response.data
+    } catch (error) {
+        console.error("Error:" + error)
+    }
+}
 
 // export const getArtistById = async(token, id) => {
 //     try {
@@ -153,12 +160,6 @@ export const createClassCall = async (token, classesData) => {
 // }
 
 
-// export const BringAllUsers = async(token) => {
-//     const res = await axios.get("http://localhost:3000/api/users/getUsers", {
-//         headers: {"Authorization": `Bearer ${token}`}
-//     })
-//     return res.data
-// }
 
 // export const GetProfileData = async(token, id) => {
 //     try {
