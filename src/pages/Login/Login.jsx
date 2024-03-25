@@ -45,9 +45,9 @@ export function LoginForm() {
                     if (isStudent) {
                         navegar("/profile")
                     } else if (isTeacher) {
-                        navegar("/profileTeacher")
+                        navegar("/profile")
                     } else if (isAdmin) {
-                        navegar("/profileAdmin")
+                        navegar("/profile")
                     }
                 }
             })

@@ -147,6 +147,17 @@ export const DeleteUsers = async(token, id) => {
     }
 }
 
+export const ProfileDataCall = async(token, id) => {
+    try {
+        const response = await axios.get("http://localhost:5000/api/users/" + id, {
+            headers: {"Authorization": `Bearer ${token}`}
+        })
+        return response.data
+    } catch (error) {
+        console.error("Error:" + error)
+    }
+}
+
 // export const getArtistById = async(token, id) => {
 //     try {
 //         const response = await axios.get("http://localhost:3000/api/users/getArtistById/" + id, {

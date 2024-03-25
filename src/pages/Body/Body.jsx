@@ -10,6 +10,7 @@ import { Inscriptions } from "../inscriptions/Inscriptions"
 import { AdminClasses } from "../adminClasses/adminClasses"
 import { CreateClasses } from "../adminClasses/CreateClasses"
 import { AllUsers } from "../AllUsers/AllUsers" //Esto es nuevo
+import { Profile } from "../Profile/Profile" //Esto es nuevo
 
 
 
@@ -29,6 +30,7 @@ export const Body = () => {
                 <Route path="/adminClasses/" element={<AdminClasses/>}></Route>
                 <Route path="/createClasses/" element={<CreateClasses/>}></Route>
                 <Route path="/allUsers/" element={<AllUsers/>}></Route>  
+                <Route path="/profile/" element={<Profile/>}></Route>
 
             </Routes>
         </>

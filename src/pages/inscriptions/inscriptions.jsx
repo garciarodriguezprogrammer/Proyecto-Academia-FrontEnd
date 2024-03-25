@@ -8,9 +8,9 @@ export const Inscriptions = () => {
     const token = useSelector(state => state.auth.token)
     const id = useSelector(state => state.auth.userId)
     console.log("Este es el id " + id)
-
     const [inscriptions, setInscriptions] = useState([]);
     const [studentId, setStudentId] = useState(null)
+
     useEffect(() => {
         const fetchStudentId = async () => {
             try {
@@ -41,6 +41,11 @@ export const Inscriptions = () => {
 
     return (
         <div className="container">
+{/* esto es nuevo */}
+{inscriptions.length === 0 ? (
+                <p>Aun no te has inscrito a una clase.</p>
+            ) : (
+
             <div className="row">
                 {inscriptions.map((inscription, index) => (
                     <div key={index} className="col-md-4 mb-4">
@@ -55,6 +60,9 @@ export const Inscriptions = () => {
                     </div>
                 ))}
             </div>
+            // este paréntesis y llaves es nuevo
+            )}
+
         </div>
     );
 };
