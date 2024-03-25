@@ -2,14 +2,14 @@ import { useEffect, useState } from 'react'
 import { BringAllUsers } from '../../services/apiCalls'
 import { AllUsersCard } from '../../Components/AllUsersCard/AllUsersCard'
 import "./AllUsers.css"
-//import { DeleteUsers } from '../../services/apiCalls'
-import { useSelector } from "react-redux" //Esto es para recuperar datos del estado de redux AHORA
+import { DeleteUsers } from '../../services/apiCalls'
+import { useSelector } from "react-redux" 
 
 
 export const AllUsers = () => {
     const [users, setUsers] = useState([]) //Funcion que nos permite acceder y actualizar el estado de users
     const token = useSelector(state => state.auth.token)
-
+    //const userRole = useSelector(state => state.auth.role); 
 
     useEffect(() => {         
         BringAllUsers(token)
@@ -19,7 +19,6 @@ export const AllUsers = () => {
     }, [])
 
     const eliminarUsuario = (id) => {
-        const token = localStorage.getItem('token')
         DeleteUsers(token, id)
             .then((res) => {
                 //Para volver a cargar las citas, y que desaparezca la que se ha eliminado
@@ -39,7 +38,9 @@ export const AllUsers = () => {
                                 key={user.id}                                
                                 userName={user.userName}
                                 email={user.email}
+                               // id={user.id} //esto es nuevo
                                 eliminarUsuario={() => eliminarUsuario(user.id)}
+                               // rol={userRole} // Pasar el rol como prop al componente AllUsersCard
                                 >
                             </AllUsersCard>
                             )
