@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 export const Profile = () => {
 
     const [datos, setDatos] = useState(null)
-    const id = useSelector(state => state.auth.userId) 
+    const id = useSelector(state => state.auth.userId)
     const token = useSelector(state => state.auth.token)
     const navegar = useNavigate()
 
@@ -18,28 +18,33 @@ export const Profile = () => {
             })
     }, [])
 
-    // const updateProfile = (user) => {
-    //     navegar("/updateUser", {state: {user}})
-    // }
+    const updateProfile = (user) => {
+        navegar("/updateUser", {state: {user}})
+        
+    }
 
 
     return (
         <>
-        <div className="container d-flex justify-content-center align-items-center" style={{ height: '100vh' }}>           
+            <div className="container d-flex justify-content-center align-items-center" style={{ height: '100vh' }}>
                 <div>
-                   {
-                    datos?(
-                     <div className="card"> 
-                     <div className="card-body">
-                      <>
-                      <h4>Nombre de usuario: {datos.userName}</h4><h5>Email: {datos.email}</h5></>  
-                      </div>
-                      {/* <button className="btn btn-primary" onClick={() => updateProfile({id:datos.id, email:datos.email, userName:datos.userName})}>Modificar Perfil</button> */}
-                      </div>
-                    )
-                    :(
-                        <p>No hay datos para mostrar</p>)
-                   }
+                    {
+                        datos ? (
+                            <div className="card">
+                                <div className="card-body">
+                                    <>
+                                        <h4>Nombre de usuario: {datos.userName}</h4>
+                                        <h5>Email: {datos.email}</h5>
+                                        <h5>Teléfono: {datos.phoneNumber}</h5>
+                                        <h5>Dirección: {datos.address}</h5>
+                                    </>
+                                </div>
+                                <button className="btn btn-primary" onClick={() => updateProfile({id:datos.id, email:datos.email, userName:datos.userName})}>Modificar Perfil</button>
+                            </div>
+                        )
+                            : (
+                                <p>No hay datos para mostrar</p>)
+                    }
                 </div>
             </div>
         </>

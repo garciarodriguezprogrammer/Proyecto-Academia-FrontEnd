@@ -158,6 +158,19 @@ export const ProfileDataCall = async(token, id) => {
     }
 }
 
+export const UpdateUserCall = async(token, id, formData) => {
+    try {
+        const response = await axios.patch("http://localhost:5000/api/users/" + id, formData, {
+            headers: {"Authorization": `Bearer ${token}`}
+        })
+        return response.data
+    } catch (error) {
+        console.error("Error:" + error)
+    }
+}
+
+// export default {loginCall}
+
 // export const getArtistById = async(token, id) => {
 //     try {
 //         const response = await axios.get("http://localhost:3000/api/users/getArtistById/" + id, {
@@ -172,16 +185,6 @@ export const ProfileDataCall = async(token, id) => {
 
 
 
-// export const GetProfileData = async(token, id) => {
-//     try {
-//         const response = await axios.get("http://localhost:3000/api/users/userId/" + id, {
-//             headers: {"Authorization": `Bearer ${token}`}
-//         })
-//         return response.data
-//     } catch (error) {
-//         console.error("Error:" + error)
-//     }
-// }
 
 // export const GetArtists = async(token) => {
 //     try {
@@ -216,18 +219,7 @@ export const ProfileDataCall = async(token, id) => {
 //     }
 // }
 
-// export const UpdateUserData = async(token, id, formData) => {
-//     try {
-//         const response = await axios.patch("http://localhost:3000/api/users//modifyProfile/" + id, formData, {
-//             headers: {"Authorization": `Bearer ${token}`}
-//         })
-//         return response.data
-//     } catch (error) {
-//         console.error("Error:" + error)
-//     }
-// }
 
-// export default {loginCall}
 
 
 
