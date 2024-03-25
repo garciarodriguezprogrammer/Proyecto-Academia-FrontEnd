@@ -101,19 +101,32 @@ export const deleteClassCall = async(id, token) => {
     }
 }
 
+// export const createClassCall = async (token, classesData) => {
+//     try {
+//         const res = await axios.post("http://localhost:5000/api/class", {
+//            classesData
+//         }, {
+//             headers: { "Authorization": `Bearer ${token}` }
+//         });
+//         return res.data;
+//     } catch (error) {
+//         console.error("Error al establecer la inscripción:", error);
+//         throw error;
+//     }
+// }
+
 export const createClassCall = async (token, classesData) => {
     try {
-        const res = await axios.post("http://localhost:5000/api/class", {
-           classesData
-        }, {
+        const res = await axios.post("http://localhost:5000/api/class", classesData, {
             headers: { "Authorization": `Bearer ${token}` }
         });
         return res.data;
     } catch (error) {
-        console.error("Error al establecer la inscripción:", error);
+        console.error("Error al crear la clase:", error);
         throw error;
     }
 }
+
 
 // export const DeleteUsers = async(token, id) => {
 //     try {

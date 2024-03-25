@@ -29,7 +29,7 @@ export const CreateClasses = () => {
             <h2>Crear Nueva Clase</h2>
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
-                    <label>Danza:</label>
+                    <label>Baile:</label>
                     <input type="text" className="form-control" value={dance} onChange={(e) => setDance(e.target.value)} required />
                 </div>
                 <div className="form-group">

@@ -1,0 +1,40 @@
+.appointment-card {
+    border: 2px solid #5d716d; /* Borde azul */
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    width: 22rem; /* Ancho en unidades de medida responsive */
+    max-width: 90vw; /* Ancho máximo relativo */
+    box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.1); /* Sombra suave */
+    margin-left: auto; /* Ajuste de posición */
+    margin-right: auto; /* Ajuste de posición */
+}
+
+.card-content {
+    font-size: 1rem; /* Tamaño de fuente en unidades de medida responsive */
+    margin-bottom: 1rem;
+}
+
+.class-detail {
+    font-size: 0.875rem; /* Tamaño de fuente en unidades de medida responsive */
+    margin-bottom: 0.625rem;
+}
+
+.btn {
+    font-size: 0.875rem; /* Tamaño de fuente en unidades de medida responsive */
+    margin-top: 0.625rem;
+    margin-right: 0.625rem; /* Espaciado entre botones en unidades de medida responsive */
+}
+
+.btn-danger {
+    color: white;
+    background-color: #e45546; /* Rojo más oscuro */
+    border-color: #eb5847;
+}
+
+.btn-secondary {
+    color: white;
+    background-color: #688072; /* Verde más oscuro */
+    border-color: #648371;
+}
+
