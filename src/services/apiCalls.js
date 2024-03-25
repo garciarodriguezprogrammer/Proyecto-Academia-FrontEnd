@@ -180,6 +180,17 @@ export const GetTeachersCall = async(token) => {
     }
 }
 
+export const teacherClassesCall = async (token, id) => {
+    try {
+        const response = await axios.get("http://localhost:5000/api/class/getClassesByTeacher/" + id, {
+            headers: { "Authorization": `Bearer ${token}` }
+        })
+        return response.data
+    } catch (error) {
+        console.error("Error:" + error)
+    }
+}
+
 // export default {loginCall}
 
 // export const getArtistById = async(token, id) => {
