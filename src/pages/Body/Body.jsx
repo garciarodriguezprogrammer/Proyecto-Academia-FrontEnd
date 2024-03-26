@@ -14,6 +14,7 @@ import { Profile } from "../Profile/Profile" //Esto es nuevo
 import { UpdateUser } from "../Profile/UpdateUser" //Esto es nuevo
 import { TeacherClasses } from "../Classes/TeacherClasses"
 import { UpdateClass } from "../adminClasses/UpdateClass"
+import { FirstView } from "../firstView/FirstView"
 
 
 
@@ -24,6 +25,7 @@ export const Body = () => {
         <>
             <Routes>
                 <Route path="*" element={<Navigate to="/home" />} /> {/* //Para que cada vez que se indique una ruta distinta de las que tenemos aquí listadas, nos dirija a la página */}
+                <Route path="/" element={<FirstView/>}></Route>
                 <Route path="/home" element={<Home />} />
                 <Route path="/login/" element={<LoginForm />}></Route>
                 <Route path="/register/" element={<RegisterForm />}></Route>
@@ -38,6 +40,7 @@ export const Body = () => {
                 <Route path="/updateUser/" element={<UpdateUser/>}></Route>
                 <Route path="/teacherClasses/" element={<TeacherClasses/>}></Route>
                 <Route path="/updateClass/" element={<UpdateClass/>}></Route>
+                
                 
 
             </Routes>
