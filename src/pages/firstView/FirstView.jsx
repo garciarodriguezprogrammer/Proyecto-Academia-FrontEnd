@@ -8,7 +8,7 @@ export const FirstView = () => {
     const goHomeButton = () => {
         setTimeout(() => {
             navegar("/home")
-        }, 1300)
+        }, 800)
     }
 
     return (

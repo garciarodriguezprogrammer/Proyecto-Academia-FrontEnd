@@ -1,18 +1,10 @@
 import axios from "axios";
 
-
-// export const loginCall = async(loginData) => {
-//     try {
-//         const response = await axios.post("http://localhost:5000/api/auth/login", loginData)
-//         return response.data;
-//     } catch (error) {
-//         console.log("Error:"+ error)
-//     }
-// }
+const API_URL = "http://localhost:5000/api"
 
 export const loginCall = async (loginData) => {
     try {
-        const response = await axios.post("http://localhost:5000/api/auth/login", loginData);
+        const response = await axios.post(`${API_URL}/auth/login`, loginData);
 
         // Verificar el token recibido en la respuesta
         if (response.data.token && typeof response.data.token === 'string' && response.data.token.trim() !== '') {
@@ -31,7 +23,7 @@ export const loginCall = async (loginData) => {
 
 export const registerCall = async (formData, rol) => {
     try {
-        const response = await axios.post("http://localhost:5000/api/auth/register/" + rol, formData)
+        const response = await axios.post(`${API_URL}/auth/register/${rol}`, formData)
         return response.data;
     } catch (error) {
         console.log("Error:" + error)
@@ -40,7 +32,7 @@ export const registerCall = async (formData, rol) => {
 
 export const myClassesCall = async (token) => {
     try {
-        const response = await axios.get("http://localhost:5000/api/class/", {
+        const response = await axios.get(`${API_URL}/class`, {
             headers: { "Authorization": `Bearer ${token}` }
         })
         return response.data
@@ -51,7 +43,7 @@ export const myClassesCall = async (token) => {
 
 export const myInscriptionsCall = async (token, id) => {
     try {
-        const response = await axios.get("http://localhost:5000/api/inscription/byStudent/" + id, {
+        const response = await axios.get(`${API_URL}/inscription/byStudent/${id}`, {
             headers: { "Authorization": `Bearer ${token}` }
         })
         return response.data
@@ -63,7 +55,7 @@ export const myInscriptionsCall = async (token, id) => {
 
 export const setInscriptionCall = async (token, studentId, classId) => {
     try {
-        const res = await axios.post("http://localhost:5000/api/inscription", {
+        const res = await axios.post(`${API_URL}/inscription`, {
             studentId: studentId,
             classId: classId
         }, {
@@ -78,7 +70,7 @@ export const setInscriptionCall = async (token, studentId, classId) => {
 
 export const getStudentId = async (userId, token) => {
     try {
-        const res = await axios.get("http://localhost:5000/api/students/getStudentId/" + userId,
+        const res = await axios.get(`${API_URL}/students/getStudentId/${userId}`,
             {
                 headers: { "Authorization": `Bearer ${token}` }
             });
@@ -91,7 +83,7 @@ export const getStudentId = async (userId, token) => {
 
 export const getTeacherIdCall = async (userId, token) => {
     try {
-        const res = await axios.get("http://localhost:5000/api/teachers/getTeacherId/" + userId,
+        const res = await axios.get(`${API_URL}/teachers/getTeacherId/${userId}`,
             {
                 headers: { "Authorization": `Bearer ${token}` }
             });
@@ -104,7 +96,7 @@ export const getTeacherIdCall = async (userId, token) => {
 
 export const deleteClassCall = async(id, token) => {
     try {
-        const response = await axios.delete("http://localhost:5000/api/class/" + id, {
+        const response = await axios.delete(`${API_URL}/class/${id}`, {
             headers: {"Authorization": `Bearer ${token}`}
         })
         console.log(response.data)
@@ -117,7 +109,7 @@ export const deleteClassCall = async(id, token) => {
 
 export const createClassCall = async (token, classesData) => {
     try {
-        const res = await axios.post("http://localhost:5000/api/class", classesData, {
+        const res = await axios.post(`${API_URL}/class`, classesData, {
             headers: { "Authorization": `Bearer ${token}` }
         });
         return res.data;
@@ -128,7 +120,7 @@ export const createClassCall = async (token, classesData) => {
 }
 
 export const BringAllUsers = async(token) => {
-    const res = await axios.get("http://localhost:5000/api/users", {
+    const res = await axios.get(`${API_URL}/users`, {
         headers: {"Authorization": `Bearer ${token}`}
     })
     return res.data
@@ -137,7 +129,7 @@ export const BringAllUsers = async(token) => {
 
 export const DeleteUsers = async(token, id) => {
     try {
-        const response = await axios.delete("http://localhost:5000/api/users/" + id, {
+        const response = await axios.delete(`${API_URL}/users/${id}`, {
             headers: {"Authorization": `Bearer ${token}`}
         })
         console.log(response.data)
@@ -149,7 +141,7 @@ export const DeleteUsers = async(token, id) => {
 
 export const ProfileDataCall = async(token, id) => {
     try {
-        const response = await axios.get("http://localhost:5000/api/users/" + id, {
+        const response = await axios.get(`${API_URL}/users/${id}`, {
             headers: {"Authorization": `Bearer ${token}`}
         })
         return response.data
@@ -160,7 +152,7 @@ export const ProfileDataCall = async(token, id) => {
 
 export const UpdateUserCall = async(token, id, formData) => {
     try {
-        const response = await axios.patch("http://localhost:5000/api/users/" + id, formData, {
+        const response = await axios.patch(`${API_URL}/users/${id}`, formData, {
             headers: {"Authorization": `Bearer ${token}`}
         })
         return response.data
@@ -171,7 +163,7 @@ export const UpdateUserCall = async(token, id, formData) => {
 
 export const GetTeachersCall = async(token) => {
     try {
-        const response = await axios.get("http://localhost:5000/api/teachers", {
+        const response = await axios.get(`${API_URL}/teachers`, {
             headers: {"Authorization": `Bearer ${token}`}
         })
         return response.data
@@ -182,7 +174,7 @@ export const GetTeachersCall = async(token) => {
 
 export const teacherClassesCall = async (token, id) => {
     try {
-        const response = await axios.get("http://localhost:5000/api/class/getClassesByTeacher/" + id, {
+        const response = await axios.get(`${API_URL}/class/getClassesByTeacher/${id}`, {
             headers: { "Authorization": `Bearer ${token}` }
         })
         return response.data
@@ -193,7 +185,7 @@ export const teacherClassesCall = async (token, id) => {
 
 export const updateClassCall = async(token, formData, id) => {
     try {
-        const response = await axios.patch("http://localhost:5000/api/class/" + id, formData, {
+        const response = await axios.patch(`${API_URL}/class/${id}`, formData, {
             headers: {"Authorization": `Bearer ${token}`}
         })
         return response.data
@@ -202,32 +194,10 @@ export const updateClassCall = async(token, formData, id) => {
     }
 }
 
-// export default {loginCall}
-
-// export const getArtistById = async(token, id) => {
-//     try {
-//         const response = await axios.get("http://localhost:3000/api/users/getArtistById/" + id, {
-//             headers: {"Authorization": `Bearer ${token}`}
-//         })
-//         console.log(response.data)
-//         return response.data
-//     } catch (error) {
-//         console.error("Error:" + error)
-//     }
-// }
 
 
 
-// export const GuardarCita = async(datosCita, token) => {
-//     try {
-//         const response = await axios.post("http://localhost:3000/api/appointments/createAppointment/", datosCita, {
-//             headers: {"Authorization": `Bearer ${token}`}
-//         })
-//         return response.data
-//     } catch (error) {
-//         console.error("Error:" + error)
-//     }
-// }
+
 
 
 
