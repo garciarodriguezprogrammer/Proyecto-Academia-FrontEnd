@@ -16,22 +16,26 @@ export const CreateClasses = () => {
     const [teachers, setTeachers] = useState([])
     const [userId, setUserId] = useState("")
     const navegar = useNavigate()
+    //Declaración de un booleano para controlar que se haya cargado el valor de teacherId para entonces activar el boton de envío del fomulario.
+    const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
         if (userId) {
             const fetchStudentId = async () => {
                 try {
                     const data = await getTeacherIdCall(userId, token)
-                    console.log(data.id)
                     setTeacherId(data.id)
+                    setIsLoading(false)
+                    console.log("Nuevo " + teacherId)
                     console.log("Esto es nuevo " + data.id)
                 } catch (error) {
+                    setIsLoading(false)
                     console.error("Error recuperando el teacherId")
                 }
             }
             fetchStudentId()
         }
-    }, [token])
+    }, [token, userId])
 
     useEffect(() => {
         GetTeachersCall(token)
@@ -42,7 +46,8 @@ export const CreateClasses = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if (teacherId) {
+        if (teacherId) { 
+            setIsLoading(true)
             try {
                 console.log("esto es teacher id " + teacherId)
                 // Llama a la función para crear la clase con los datos del estado
@@ -57,8 +62,11 @@ export const CreateClasses = () => {
                 // Lógica adicional después de crear la clase, como redirigir a otra página o mostrar un mensaje de éxito
             } catch (error) {
                 console.error('Error al crear la clase:', error);
+                setIsLoading(false)
                 // Lógica adicional en caso de error, como mostrar un mensaje de error al usuario
             }
+        } else {
+            console.log("Error al recuperar el teacherId")
         }
     };
 
@@ -84,7 +92,7 @@ export const CreateClasses = () => {
                     <input type="time" className="form-control" value={endTime} onChange={(e) => setEndTime(e.target.value)} required />
                 </div>
                 <div className="form-group">
-                    <select name="id" id="id" onChange={(e) => setUserId(e.target.value)}>
+                    <select name="id" id="id" value={teacherId||""} onChange={(e) => setUserId(e.target.value)}>
                         {teachers && teachers.map((teacher) => (
                             <option value={teacher.id} key={teacher.id}>
                                 {teacher.userName}
@@ -93,7 +101,7 @@ export const CreateClasses = () => {
                     </select>
                 </div>
                 {/* El teacherId se establece como constante, pero podrías agregar lógica para seleccionar un profesor */}
-                <button type="submit" className="btn btn-primary">Crear Clase</button>
+                <button type="submit" className="btn btn-primary" disabled={!teacherId || isLoading}>Crear Clase</button>
             </form>
         </div>
     );

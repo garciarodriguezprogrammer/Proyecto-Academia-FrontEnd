@@ -9,6 +9,7 @@ export const UpdateClass = () => {
     const clase = location.state.clase;
     const token = useSelector((state) => state.auth.token);
     const id = clase.id;
+    const [successMessage, setSuccessMessage] = useState("")
     const [formData, setFormData] = useState({
         dance: clase.dance,
         day: clase.day,
@@ -30,7 +31,10 @@ export const UpdateClass = () => {
         updateClassCall(token, formData, id)
             .then((res) => {
                 console.log(res);
-                // Aquí podrías agregar lógica adicional, como redirigir a otra página
+                setSuccessMessage("Su inscripción se ha modificado exitosamente")
+                setTimeout(() => {
+                    navegar("/adminClasses")
+                }, 3000)
             })
             .catch((error) => {
                 console.error("Error al actualizar la clase:", error);
@@ -40,6 +44,7 @@ export const UpdateClass = () => {
 
     return (
         <div className="container">
+            {successMessage && (<div className="alert alert-success" role="alert">{successMessage}</div>)}
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
                     <label>Baile:</label>
@@ -50,12 +55,12 @@ export const UpdateClass = () => {
                     <input type="text" className="form-control" name="day" value={formData.day} onChange={handleChange} />
                 </div>
                 <div className="form-group">
-                    <label>Hora de Inicio:</label>
-                    <input type="datetime-local" className="form-control" name="startTime" value={formData.startTime} onChange={handleChange} />
+                    <label>Hora de Inicio:</label>    
+                    <input type="time" className="form-control" name="startTime" defaultValue={formData.endTime} onChange={handleChange} />
                 </div>
                 <div className="form-group">
                     <label>Hora de Fin:</label>
-                    <input type="datetime-local" className="form-control" name="endTime" value={formData.endTime} onChange={handleChange} />
+                    <input type="time" className="form-control" name="endTime" defaultValue={formData.endTime} onChange={handleChange} />
                 </div>
                 <button type="submit" className="btn btn-primary">Actualizar Clase</button>
             </form>

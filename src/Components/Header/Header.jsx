@@ -9,15 +9,13 @@ import { useSelector, useDispatch } from 'react-redux';
 import { jwtDecode } from "jwt-decode"; //Añadir esto
 import { logOut } from '../../features/AuthSlice';
 
-export const Header = () => {
-  const token = useSelector(state => state.auth.token) //Añadir esto
-  console.log("esto es token header " + token)
-  const decodedToken = jwtDecode(token) //Añadir esto
-  console.log("esto es decodedToken header " + decodedToken)
-  const rol = decodedToken.rol //Añadir esto
-  console.log("esto es decodedToken.rol header " + decodedToken.rol)
 
-  const isLoggedIn = useSelector(state => state.auth.isAuthenticated); // Accede al estado de autenticación desde Redux
+export const Header = () => {
+  const token = useSelector(state => state.auth.token);
+  const decodedToken = token ? jwtDecode(token) : null; // Verificar si el token existe
+  const rol = decodedToken ? decodedToken.rol : null; // Verificar si decodedToken existe antes de acceder a rol
+
+  const isLoggedIn = useSelector(state => state.auth.isAuthenticated);
   const dispatch = useDispatch();
   const navegar = useNavigate();
   const handleLogout = () => {
@@ -36,34 +34,41 @@ export const Header = () => {
           <Nav className="me-auto">
             <Nav.Link href="/">Inicio</Nav.Link>
             <NavDropdown title="Mi cuenta" id="basic-nav-dropdown">
-
-              {!token
-                ? (
-                  <>
-                    <NavDropdown.Item href="/login">Login</NavDropdown.Item>
-                    <NavDropdown.Item href="/register">Registrarse</NavDropdown.Item>
-                  </>
-                ) : (
-                  <>
-                    <Nav.Link href="/">Inicio</Nav.Link>
-                    <Nav.Link href="/myInscriptions">Mis Inscripciones</Nav.Link>
-                    <NavDropdown title="Clases" id="basic-nav-dropdown">
-                      <NavDropdown.Item href="/classes">Clases disponibles</NavDropdown.Item>
-                    </NavDropdown>
-                    <NavDropdown title="Clases" id="basic-nav-dropdown">
-                      <NavDropdown.Item href="/teacherClasses">Ver clases programadas</NavDropdown.Item>
-                    </NavDropdown>
-                    <Nav.Link href="/allUsers">Usuarios</Nav.Link>
-                    <NavDropdown title="Clases" id="basic-nav-dropdown">
-                      <NavDropdown.Item href="/adminClasses">Ver todas las clases programadas</NavDropdown.Item>
-                      <NavDropdown.Item href="/createClasses">Crear nueva clase</NavDropdown.Item>
-                    </NavDropdown>
-                    <NavDropdown.Divider />
-                    {isLoggedIn && <NavDropdown.Item onClick={handleLogout}>Cerrar sesión</NavDropdown.Item>}
-                  </>
-
-                )
-              }
+              {!token ? (
+                <>
+                  <NavDropdown.Item href="/login">Login</NavDropdown.Item>
+                  <NavDropdown.Item href="/register">Registrarse</NavDropdown.Item>
+                </>
+              ) : (
+                <>
+                  {rol === "student" && (
+                    <>
+                      <Nav.Link href="/">Inicio</Nav.Link>
+                      <Nav.Link href="/myInscriptions">Mis Inscripciones</Nav.Link>
+                      <NavDropdown title="Clases" id="basic-nav-dropdown">
+                        <NavDropdown.Item href="/classes">Clases disponibles</NavDropdown.Item>
+                      </NavDropdown>
+                    </>
+                  )}
+                  {rol === "teacher" && (
+                    <>
+                      <NavDropdown title="Clases" id="basic-nav-dropdown">
+                        <NavDropdown.Item href="/teacherClasses">Ver clases programadas</NavDropdown.Item>
+                      </NavDropdown>
+                    </>
+                  )}
+                  {rol === "admin" && (
+                    <>
+                      <Nav.Link href="/allUsers">Usuarios</Nav.Link>
+                      <NavDropdown title="Clases" id="basic-nav-dropdown">
+                        <NavDropdown.Item href="/adminClasses">Ver todas las clases programadas</NavDropdown.Item>
+                        <NavDropdown.Item href="/createClasses">Crear nueva clase</NavDropdown.Item>
+                      </NavDropdown>
+                    </>
+                  )}
+                  {isLoggedIn && <NavDropdown.Item onClick={handleLogout}>Cerrar sesión</NavDropdown.Item>}
+                </>
+              )}
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
@@ -72,6 +77,4 @@ export const Header = () => {
   );
 }
 
-//{rol === "admin"? ( menú admin) : ()
-// }
 

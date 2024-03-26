@@ -4,6 +4,7 @@ import { useSelector } from "react-redux"
 import { setInscriptionCall } from "../../services/apiCalls";
 import { useNavigate } from "react-router-dom"
 import './Classes.css'
+import tangoImg from "../../img/Tango.jpg"
 
 export const Classes = () => {
     const navegar = useNavigate()
@@ -64,6 +65,7 @@ export const Classes = () => {
                 {classes && classes.map((clase, index) => (
                     <div key={index} className="col-md-4 mb-4">
                         <div className="card otherCard" style={{ transition: "transform 0.3s" }} onClick={() => handleInscription(clase.id)}>
+                            <img src={`../../img/${clase.dance}.jpg`} alt="" />
                             <div className="card-body">
                                 <h5 className="card-title">{clase.dance}</h5>
                                 <p className="card-text">Día: {clase.day}</p>
