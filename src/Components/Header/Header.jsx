@@ -10,19 +10,12 @@ import { jwtDecode } from "jwt-decode"; //Añadir esto
 import { logOut } from '../../features/AuthSlice';
 
 export const Header = () => {
-  // const navigate = useNavigate()  
-  // const token = localStorage.getItem('token')
-  // const logMeOut = () => {
-  //    localStorage.setItem('token', '') 
-  //    localStorage.setItem('decoded', JSON.stringify({})) 
-  //    setTimeout(() => {
-  //     navigate('/personajes')
-  //    }, 600)
-
-  // }
   const token = useSelector(state => state.auth.token) //Añadir esto
-  //const decodedToken = jwtDecode(token) //Añadir esto
-  //const rol = decodedToken.rol //Añadir esto
+  console.log("esto es token header " + token)
+  const decodedToken = jwtDecode(token) //Añadir esto
+  console.log("esto es decodedToken header " + decodedToken)
+  const rol = decodedToken.rol //Añadir esto
+  console.log("esto es decodedToken.rol header " + decodedToken.rol)
 
   const isLoggedIn = useSelector(state => state.auth.isAuthenticated); // Accede al estado de autenticación desde Redux
   const dispatch = useDispatch();
