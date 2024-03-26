@@ -4,7 +4,7 @@
   }
   
   footer {
-    position: fixed; /* Establecer la posición absoluta */
+    position:absolute; /* Establecer la posición absoluta */
     bottom: 0; /* Fijar el pie de página en la parte inferior */
     width: 100%; /* Asegurar que el pie de página ocupe todo el ancho */
   }

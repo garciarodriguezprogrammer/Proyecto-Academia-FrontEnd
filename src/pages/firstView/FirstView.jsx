@@ -23,7 +23,7 @@ export const FirstView = () => {
             <div className="video-container">
                 <div class="welcome-container">
                     <video autoPlay muted loop id="video-background">
-                        <source src="../../img/videoDance.mp4" type="video/mp4" />
+                        <source src="/img/videoDos.mp4" type="video/mp4" />
                     </video>
                     <div class="content">
                         {/* <!-- Aquí colocarías el contenido que quieres que aparezca sobre el video de fondo --> */}

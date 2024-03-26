@@ -1,0 +1,12 @@
+.home-container {
+    background-image: url('/img/Danza Contemporánea.jpg'); /* Reemplaza 'ruta/de/la/imagen.jpg' por la ruta de tu imagen de fondo */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+.title {
+    color: white; /* Color del texto */
+    padding-top: 20vh; /* Espacio vertical para centrar el texto */
+}
