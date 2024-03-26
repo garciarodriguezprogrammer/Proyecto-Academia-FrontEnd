@@ -23,8 +23,8 @@ export const Body = () => {
     return (
         <>
             <Routes>
-                <Route path="*" element={<Navigate to="/" />} /> {/* //Para que cada vez que se indique una ruta distinta de las que tenemos aquí listadas, nos dirija a la página */}
-                <Route path="/" element={<Home />} />
+                <Route path="*" element={<Navigate to="/home" />} /> {/* //Para que cada vez que se indique una ruta distinta de las que tenemos aquí listadas, nos dirija a la página */}
+                <Route path="/home" element={<Home />} />
                 <Route path="/login/" element={<LoginForm />}></Route>
                 <Route path="/register/" element={<RegisterForm />}></Route>
                 <Route path="/adminRegister/" element={<AdminRegisterForm />}></Route>

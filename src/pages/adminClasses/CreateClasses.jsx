@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { GetTeachersCall, createClassCall, getTeacherIdCall } from '../../services/apiCalls'; // Importa la función para llamar a la API
 import { useSelector } from 'react-redux';
-
+import { useNavigate } from 'react-router-dom';
 
 
 export const CreateClasses = () => {
@@ -9,12 +9,13 @@ export const CreateClasses = () => {
     const id = useSelector(state => state.auth.userId)
     const [dance, setDance] = useState('');
     const [day, setDay] = useState('');
+    const [successMessage, setSuccessMessage] = useState("")
     const [startTime, setStartTime] = useState('');
     const [endTime, setEndTime] = useState('');
     const [teacherId, setTeacherId] = useState(); // Supongamos que el ID del profesor es 1, puedes cambiarlo según tus necesidades
     const [teachers, setTeachers] = useState([])
     const [userId, setUserId] = useState("")
-
+    const navegar = useNavigate()
 
     useEffect(() => {
         if (userId) {
@@ -23,6 +24,7 @@ export const CreateClasses = () => {
                     const data = await getTeacherIdCall(userId, token)
                     console.log(data.id)
                     setTeacherId(data.id)
+                    console.log("Esto es nuevo " + data.id)
                 } catch (error) {
                     console.error("Error recuperando el teacherId")
                 }
@@ -40,21 +42,30 @@ export const CreateClasses = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        try {
-            console.log("esto es teacher id " + teacherId)
-            // Llama a la función para crear la clase con los datos del estado
-            const res = await createClassCall(token, { dance, day, startTime, endTime, teacherId });
-            console.log(res)
-            // Lógica adicional después de crear la clase, como redirigir a otra página o mostrar un mensaje de éxito
-        } catch (error) {
-            console.error('Error al crear la clase:', error);
-            // Lógica adicional en caso de error, como mostrar un mensaje de error al usuario
+        if (teacherId) {
+            try {
+                console.log("esto es teacher id " + teacherId)
+                // Llama a la función para crear la clase con los datos del estado
+                const res = await createClassCall(token, { dance, day, startTime, endTime, teacherId });
+                console.log(res)
+                
+                setSuccessMessage("Su inscripción se ha realizado exitosamente")
+                setTimeout(() => {
+                    navegar("/adminClasses")
+                }, 3000)
+                
+                // Lógica adicional después de crear la clase, como redirigir a otra página o mostrar un mensaje de éxito
+            } catch (error) {
+                console.error('Error al crear la clase:', error);
+                // Lógica adicional en caso de error, como mostrar un mensaje de error al usuario
+            }
         }
     };
 
     return (
         <div className="container">
             <h2>Crear Nueva Clase</h2>
+            {successMessage && (<div className="alert alert-success" role="alert">{successMessage}</div>)}
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
                     <label>Baile:</label>

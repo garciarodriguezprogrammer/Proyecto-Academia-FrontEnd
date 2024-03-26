@@ -41,6 +41,8 @@ export const Inscriptions = () => {
 
     return (
         <div className="container">
+          <div className="text-center my-4">
+    <h4 className="font-weight-bold">Mis inscripciones</h4></div>  
             <div className="row">
                 {inscriptions && inscriptions.length > 0 ? (
                     inscriptions.map((inscription, index) => (
