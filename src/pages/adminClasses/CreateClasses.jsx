@@ -92,7 +92,7 @@ export const CreateClasses = () => {
                     <input type="time" className="form-control" value={endTime} onChange={(e) => setEndTime(e.target.value)} required />
                 </div>
                 <div className="form-group">
-                    <select name="id" id="id" value={teacherId||""} onChange={(e) => setUserId(e.target.value)}>
+                    <select name="id" id="id" defaultValue={teacherId||""} onChange={(e) => setUserId(e.target.value)}>
                         {teachers && teachers.map((teacher) => (
                             <option value={teacher.id} key={teacher.id}>
                                 {teacher.userName}
