@@ -2,12 +2,14 @@ import { ClassesCard } from "../../Components/classesCard/ClassesCard"
 import { deleteClassCall, myClassesCall } from "../../services/apiCalls";
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux"
+import { useNavigate } from "react-router-dom";
 
 export const AdminClasses = () => {
 
     const token = useSelector(state => state.auth.token)
     const id = useSelector(state => state.auth.userId)
     const [classes, setClasses] = useState(null)
+    const navegar = useNavigate()
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -35,9 +37,10 @@ export const AdminClasses = () => {
         fetchEliminar()
     }
 
-    const editarClase = (classId) => {
-
+    const editarClase = (clase) => {
+        navegar("/updateClass", {state: {clase}})
     }
+   
 
     return (
         <div className="container">

@@ -31,7 +31,7 @@ export const ClassesCard = ({ id, dance, day, startTime, endTime, eliminarClase,
                 <h2 id="endTime" className="class-detail">Hora fin: {endTime}</h2>
             </div>
             <button className="btn btn-danger" onClick={() => eliminarClase(id)}>Eliminar</button>
-            <button className="btn btn-secondary" onClick={() => editarClase(id)}>Editar</button>
+            <button className="btn btn-secondary" onClick={() => editarClase({ id, dance, day, startTime, endTime})}>Editar</button>
         </div>
     );
 };

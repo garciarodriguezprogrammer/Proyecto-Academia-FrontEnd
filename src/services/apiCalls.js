@@ -191,6 +191,17 @@ export const teacherClassesCall = async (token, id) => {
     }
 }
 
+export const updateClassCall = async(token, formData, id) => {
+    try {
+        const response = await axios.patch("http://localhost:5000/api/class/" + id, formData, {
+            headers: {"Authorization": `Bearer ${token}`}
+        })
+        return response.data
+    } catch (error) {
+        console.error("Error:" + error)
+    }
+}
+
 // export default {loginCall}
 
 // export const getArtistById = async(token, id) => {
@@ -218,16 +229,7 @@ export const teacherClassesCall = async (token, id) => {
 //     }
 // }
 
-// export const UpdateAppointment = async(token, formData, id) => {
-//     try {
-//         const response = await axios.patch("http://localhost:3000/api/appointments/modifyAppointment/" + id, formData, {
-//             headers: {"Authorization": `Bearer ${token}`}
-//         })
-//         return response.data
-//     } catch (error) {
-//         console.error("Error:" + error)
-//     }
-// }
+
 
 
 

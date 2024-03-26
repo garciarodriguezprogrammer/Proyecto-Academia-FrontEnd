@@ -1,13 +1,24 @@
 import { useEffect, useState } from "react"
 import { getTeacherIdCall, teacherClassesCall } from "../../services/apiCalls"
 import { useSelector } from 'react-redux';
+import { jwtDecode } from "jwt-decode"; //Añadir esto
+import { useNavigate } from "react-router-dom";
 
 export const TeacherClasses = () => {
 
     const id = useSelector(state => state.auth.userId)
-    const token = useSelector(state => state.auth.token)
+    const token = useSelector(state => state.auth.token) //Añadir esto //Ya añadido
+    const decodedToken = jwtDecode(token) //Añadir esto
+    const rol = decodedToken.rol //Añadir esto
     const [teacherId, setTeacherId] = useState()
     const [classes, setClasses] = useState()
+    const navegar = useNavigate()
+
+    useEffect(() => {
+        if(rol !== "teacher"){
+            navegar("/profile")
+        }
+    }, [rol])
 
     useEffect(() => {
         if (id) {
@@ -21,7 +32,7 @@ export const TeacherClasses = () => {
             };
             idCall()
         }
-    }, [id])
+    }, [id, token])
 
     useEffect(() => {
         if (teacherId) {
@@ -38,11 +49,13 @@ export const TeacherClasses = () => {
         }
     }, [token, teacherId])
 
+
     return (
         <div className="container">
             <div className="text-center my-4">
                 <div className="row">
-                    {classes && classes.map((clase, index) => (
+                {classes && classes.length > 0 ? (
+                    classes.map((clase, index) => (
                         <div key={index} className="col-md-4 mb-4">
                             <div className="card otherCard" style={{ transition: "transform 0.3s" }}>
                                 <div className="card-body">
@@ -53,7 +66,10 @@ export const TeacherClasses = () => {
                                 </div>
                             </div>
                         </div>
-                    ))}
+                    ))
+                ) : (
+                    <p className="alert alert-info mt-3 p-3">No tiene clases programadas</p>
+                )}
                 </div>
             </div>
         </div>

@@ -5,18 +5,31 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './Header.css'
 import { useNavigate } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { logOut } from '../../features/AuthSlice';
 
 export const Header = () => {
-  const navigate = useNavigate()  
-  const token = localStorage.getItem('token')
-  const logMeOut = () => {
-     localStorage.setItem('token', '') 
-     localStorage.setItem('decoded', JSON.stringify({})) 
-     setTimeout(() => {
-      navigate('/personajes')
-     }, 600)
+  // const navigate = useNavigate()  
+  // const token = localStorage.getItem('token')
+  // const logMeOut = () => {
+  //    localStorage.setItem('token', '') 
+  //    localStorage.setItem('decoded', JSON.stringify({})) 
+  //    setTimeout(() => {
+  //     navigate('/personajes')
+  //    }, 600)
      
-  }
+  // }
+  const token = useSelector(state => state.auth.token) //Añadir esto
+  
+  const isLoggedIn = useSelector(state => state.auth.isAuthenticated); // Accede al estado de autenticación desde Redux
+  const dispatch = useDispatch();
+  const navegar = useNavigate();
+  const handleLogout = () => {
+    dispatch(logOut()); 
+    setTimeout(() => {
+      navegar('/home');
+    }, 600);
+  };
 
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
@@ -40,7 +53,7 @@ export const Header = () => {
                 <NavDropdown.Item href="#action/3.1">Perfil</NavDropdown.Item>
                 <NavDropdown.Item href="register">Mis citas</NavDropdown.Item>
                 <NavDropdown.Divider />
-                <NavDropdown.Item onClick={() => logMeOut()}>Log out</NavDropdown.Item>
+                {isLoggedIn && <NavDropdown.Item onClick={handleLogout}>Cerrar sesión</NavDropdown.Item>}
                 </>
 
               )
@@ -53,5 +66,6 @@ export const Header = () => {
   );
 }
 
-
+//{rol === "admin"? ( menú admin) : ()
+// }
 

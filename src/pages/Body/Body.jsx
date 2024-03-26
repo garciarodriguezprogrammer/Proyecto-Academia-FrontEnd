@@ -13,6 +13,8 @@ import { AllUsers } from "../AllUsers/AllUsers" //Esto es nuevo
 import { Profile } from "../Profile/Profile" //Esto es nuevo
 import { UpdateUser } from "../Profile/UpdateUser" //Esto es nuevo
 import { TeacherClasses } from "../Classes/TeacherClasses"
+import { UpdateClass } from "../adminClasses/UpdateClass"
+
 
 
 
@@ -35,6 +37,8 @@ export const Body = () => {
                 <Route path="/profile/" element={<Profile/>}></Route>
                 <Route path="/updateUser/" element={<UpdateUser/>}></Route>
                 <Route path="/teacherClasses/" element={<TeacherClasses/>}></Route>
+                <Route path="/updateClass/" element={<UpdateClass/>}></Route>
+                
 
             </Routes>
         </>
