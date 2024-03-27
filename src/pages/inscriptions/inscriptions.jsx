@@ -57,7 +57,7 @@ export const Inscriptions = () => {
                         </div>
                     ))
                 ) : (
-                    <p className="alert alert-info mt-3 p-3">Aún no ha realizado ninguna inscrpción</p>
+                    <p className="alert alert-info mt-3 p-3">Aún no ha realizado ninguna inscripción</p>
                 )}
             </div>
         </div>
