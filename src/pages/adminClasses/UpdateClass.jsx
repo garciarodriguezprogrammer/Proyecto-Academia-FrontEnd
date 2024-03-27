@@ -54,7 +54,7 @@ export const UpdateClass = () => {
                 </div>
                 <div className="form-group">
                     <label>Hora de Inicio:</label>    
-                    <input type="time" className="form-control" name="startTime" defaultValue={formData.endTime} onChange={handleChange} />
+                    <input type="time" className="form-control" name="startTime" defaultValue={formData.startTime} onChange={handleChange} />
                 </div>
                 <div className="form-group">
                     <label>Hora de Fin:</label>
