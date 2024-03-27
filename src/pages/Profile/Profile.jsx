@@ -33,10 +33,10 @@ export const Profile = () => {
                             <div className="card">
                                 <div className="card-body">
                                     <>
-                                        <h4>Nombre de usuario: {datos.userName}</h4>
-                                        <h5>Email: {datos.email}</h5>
-                                        <h5>Teléfono: {datos.phoneNumber}</h5>
-                                        <h5>Dirección: {datos.address}</h5>
+                                        <h4 className="card-text">Nombre de usuario: {datos.userName}</h4>
+                                        <h5 className="card-text">Email: {datos.email}</h5>
+                                        <h5 className="card-text">Teléfono: {datos.phoneNumber}</h5>
+                                        <h5 className="card-text">Dirección: {datos.address}</h5>
                                     </>
                                 </div>
                                 <button className="btn btn-primary" onClick={() => updateProfile({id:datos.id, email:datos.email, userName:datos.userName})}>Modificar Perfil</button>

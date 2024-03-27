@@ -15,18 +15,24 @@ export const FirstView = () => {
         <>
             <div className="welcome-container">
                 <p>Bienvenido a</p>
-                <p><strong>All4dancing</strong></p>
+                <div>
+                    <p>
+                        <span className="all-text logo">All</span>
+                        <span className="number-text logo">4</span>
+                        <span className="dancing-text logo">dancing</span>
+
+                    </p>
+                </div>
                 <p>estás a un</p>
                 <button className="cta-button" onClick={() => goHomeButton()}>Click</button>
                 <p>de convertirte en el gran bailador que esperas</p>
             </div>
             <div className="video-container">
-                <div class="welcome-container">
+                <div className="welcome-container">
                     <video autoPlay muted loop id="video-background">
-                        <source src="/img/videoDos.mp4" type="video/mp4" />
+                        <source src="/img/videoDance.mp4" type="video/mp4" />
                     </video>
-                    <div class="content">
-                        {/* <!-- Aquí colocarías el contenido que quieres que aparezca sobre el video de fondo --> */}
+                    <div className="content">
                     </div>
                 </div>
             </div>

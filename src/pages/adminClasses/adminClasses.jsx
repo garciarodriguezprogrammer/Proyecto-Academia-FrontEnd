@@ -43,7 +43,7 @@ export const AdminClasses = () => {
    
 
     return (
-        <div className="container">
+        <div className="container row">
             <div className="container">
                 <h2 className="text-white">Todas las clases</h2>
             </div>
