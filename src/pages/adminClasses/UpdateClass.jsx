@@ -30,7 +30,6 @@ export const UpdateClass = () => {
         e.preventDefault();
         updateClassCall(token, formData, id)
             .then((res) => {
-                console.log(res);
                 setSuccessMessage("Su inscripción se ha modificado exitosamente")
                 setTimeout(() => {
                     navegar("/adminClasses")
@@ -38,7 +37,6 @@ export const UpdateClass = () => {
             })
             .catch((error) => {
                 console.error("Error al actualizar la clase:", error);
-                // Aquí podrías manejar el error, como mostrar un mensaje al usuario
             });
     };
 

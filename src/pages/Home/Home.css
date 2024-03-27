@@ -45,7 +45,7 @@
     border-color: #545b62;
 }
 
-/* Estilos para los divs con imagen y texto superpuesto */
+/* Estilos para los divs con imagen y texto */
 .hover-effect {
     position: relative;
     overflow: hidden;
@@ -92,6 +92,6 @@
 }
 
 .imgDiv {
-    border: 1.5px solid white; /* Borde blanco de 1 píxel */
-    border-radius: 7px; /* Esquinas redondeadas */
+    border: 1.5px solid white; 
+    border-radius: 7px; 
   }

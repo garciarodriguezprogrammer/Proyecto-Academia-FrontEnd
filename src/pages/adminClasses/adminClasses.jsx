@@ -27,7 +27,6 @@ export const AdminClasses = () => {
         const fetchEliminar = async() => {
             try {
                 const data = await deleteClassCall(classId, token)
-                console.log(data)
                 const updatedClasses = classes.filter(clase => clase.id !== classId)
                 setClasses(updatedClasses)
             } catch (error) {
@@ -48,7 +47,7 @@ export const AdminClasses = () => {
                 <h2 className="text-white">Todas las clases</h2>
             </div>
             {classes && classes.length > 0 ? (
-                classes.map((clase) => ( // Cambié el nombre de la variable a "clase" para evitar conflictos con la palabra reservada "class"
+                classes.map((clase) => ( 
                     <ClassesCard
                         key={clase.id}
                         dance={clase.dance}
@@ -61,7 +60,7 @@ export const AdminClasses = () => {
                     />
                 ))
             ) : (
-                <p>No tienes clases programadas.</p> // Cambié el mensaje para que sea coherente con el contexto
+                <p>No tienes clases programadas.</p> 
             )}
         </div>
     );

@@ -38,18 +38,14 @@ export const AllUsers = () => {
                                 key={user.id}                                
                                 userName={user.userName}
                                 email={user.email}
-                               // id={user.id} //esto es nuevo
                                 eliminarUsuario={() => eliminarUsuario(user.id)}
-                               // rol={userRole} // Pasar el rol como prop al componente AllUsersCard
                                 >
                             </AllUsersCard>
                             )
                         })}
                     </>
                 )
-
                 }
-
             </div>
         </div>
         </>

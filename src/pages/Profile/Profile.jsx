@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { ProfileDataCall } from "../../services/apiCalls";
-import { useSelector } from "react-redux" //Esto es para recuperar datos del estado de redux AHORA
+import { useSelector } from "react-redux" 
 import { useNavigate } from "react-router-dom";
 
 

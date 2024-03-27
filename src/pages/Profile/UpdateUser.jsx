@@ -7,11 +7,7 @@ import { UpdateUserCall } from "../../services/apiCalls"
  export const UpdateUser = () => {
     const location = useLocation()
     const navegar = useNavigate()
-
-    console.log("Location state:", location.state);
-
     const user = location.state.user
-
     const token = useSelector(state => state.auth.token)
     const id = user.id
 
@@ -21,7 +17,7 @@ import { UpdateUserCall } from "../../services/apiCalls"
         
     })
 
-//     //Para guardar los nuevos datos que escribimos
+     //Para guardar los nuevos datos que escribimos
     const handleChange = (event) => {
         setFormData({
             ...formData, 
@@ -44,7 +40,6 @@ import { UpdateUserCall } from "../../services/apiCalls"
                 <form onSubmit={handleUpdate} action="">
                     <input type="text" onChange={handleChange} className="form-control" name="userName" defaultValue={user.userName}/>
                     <input type="text" onChange={handleChange} className="form-control" name="email" defaultValue={user.email}/>
-
                     <button className="btn btn-success" type="submit">Actualizar</button>
                 </form>
             </div>

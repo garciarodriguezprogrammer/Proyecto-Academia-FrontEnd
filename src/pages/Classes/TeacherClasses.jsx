@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react"
 import { getTeacherIdCall, teacherClassesCall } from "../../services/apiCalls"
 import { useSelector } from 'react-redux';
-import { jwtDecode } from "jwt-decode"; //Añadir esto //Ya añadido
+import { jwtDecode } from "jwt-decode"; 
 import { useNavigate } from "react-router-dom";
 
 export const TeacherClasses = () => {
 
     const id = useSelector(state => state.auth.userId)
-    const token = useSelector(state => state.auth.token) //Añadir esto //Ya añadido
-    const decodedToken = jwtDecode(token) //Añadir esto //Ya añadido
-    const rol = decodedToken.rol //Añadir esto //Ya añadido
+    const token = useSelector(state => state.auth.token) 
+    const decodedToken = jwtDecode(token) 
+    const rol = decodedToken.rol 
     const [teacherId, setTeacherId] = useState()
     const [classes, setClasses] = useState()
     const navegar = useNavigate()

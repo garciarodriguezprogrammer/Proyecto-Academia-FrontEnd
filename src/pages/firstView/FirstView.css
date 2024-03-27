@@ -1,8 +1,8 @@
-/* Estilos para el contenedor del mensaje de bienvenida */
+
 .welcome-container {
     position: relative;
     width: 100%;
-    height: 100vh; /* Ajusta la altura según sea necesario */
+    height: 100vh; 
     overflow: hidden;
     text-align: center;
     margin-top: 50px;
@@ -23,19 +23,19 @@
     position: relative;
     z-index: 1;
     text-align: center;
-    color: #ffffff; /* Cambia el color del texto a blanco */
+    color: #ffffff; 
     padding: 2vw;
 }
 
 .welcome-container p {
     font-size: 4vw;
     margin-bottom: 1vw;
-    color: #ffffff; /* Cambia el color del texto a blanco */
+    color: #ffffff; /
 }
 
 .welcome-container strong {
     font-size: 5vw;
-    color: #ffffff; /* Cambia el color del texto a blanco */
+    color: #ffffff; /
 }
 
 
@@ -53,12 +53,11 @@
 .cta-button {
     border: none;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s; /* Transiciones suaves para los cambios */
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s; 
 }
 
 .cta-button:hover {
-    transform: scale(1.05); /* Aumenta el tamaño del botón al 105% */
-    box-shadow: 0 0 10px rgba(255, 215, 0, 0.5); /* Ilumina el borde con un efecto dorado */
+    transform: scale(1.05); 
     background-color: #ff0080;
 }
 
@@ -74,29 +73,29 @@
 }
 
 .logo {
-    font-family: 'Dancing Script', cursive; /* Usa una fuente que evoca movimiento y baile */
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Agrega una sombra al texto para resaltar */
+    font-family: 'Dancing Script', cursive; 
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); 
   }
   
   strong {
-    font-weight: bold; /* Asegura que el texto en negrita sea más audaz */
-    color: #ffd700; /* Color dorado */
+    font-weight: bold; 
+    color: #ffd700; 
     
   }
 
   .all-text {
     font-size: 5vw; /* Tamaño de la palabra "All" */
-    color: #ffffff; /* Color para la palabra "All" */
+    color: #ffffff; 
   }
   
   .dancing-text {
     font-size: 4vw; /* Tamaño de la palabra "Dancing" */
-    color: #ffffff; /* Color para la palabra "Dancing" */
+    color: #ffffff; 
   }
   
   .number-text {
     font-size: 6vw; /* Tamaño del número "4" */
-    color: #ff0080; /* Color para el número "4" */
+    color: #ff0080; 
   }
   
   

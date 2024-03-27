@@ -6,14 +6,16 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import './Header.css'
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { jwtDecode } from "jwt-decode"; //Añadir esto
+import { jwtDecode } from "jwt-decode"; 
 import { logOut } from '../../features/AuthSlice';
 
 
 export const Header = () => {
   const token = useSelector(state => state.auth.token);
-  const decodedToken = token ? jwtDecode(token) : null; // Verificar si el token existe
-  const rol = decodedToken ? decodedToken.rol : null; // Verificar si decodedToken existe antes de acceder a rol
+  // Verificar si el token existe
+  const decodedToken = token ? jwtDecode(token) : null; 
+  // Verificar si decodedToken existe antes de acceder a rol
+  const rol = decodedToken ? decodedToken.rol : null; 
 
   const isLoggedIn = useSelector(state => state.auth.isAuthenticated);
   const dispatch = useDispatch();
@@ -34,8 +36,6 @@ export const Header = () => {
           <span className="brand-text-number logo">4</span>
           <span className="brand-text-dancing logo">dancing</span>
         </Navbar.Brand>
-
-
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
@@ -43,7 +43,7 @@ export const Header = () => {
             <NavDropdown title="Mi cuenta" id="basic-nav-dropdown">
               {!token ? (
                 <>
-                  <NavDropdown.Item href="/login">Login</NavDropdown.Item>
+                  <NavDropdown.Item href="/login">Iniciar sesión</NavDropdown.Item>
                   <NavDropdown.Item href="/register">Registrarse</NavDropdown.Item>
                 </>
               ) : (

@@ -3,7 +3,7 @@ import './App.css'
 import { Footer } from './Components/Footer/Footer'
 import { Header } from './Components/Header/Header'
 import { Body } from './pages/Body/Body'
-//import { HomeHeader } from './Components/Header/HomeHeader'
+
 
 
 

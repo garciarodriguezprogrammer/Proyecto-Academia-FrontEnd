@@ -15,7 +15,6 @@ export const Inscriptions = () => {
         const fetchStudentId = async () => {
             try {
                 const data = await getStudentId(id, token)
-                console.log(data.id)
                 setStudentId(data.id)
             } catch (error) {
                 console.error("Error recuperando el studentId")

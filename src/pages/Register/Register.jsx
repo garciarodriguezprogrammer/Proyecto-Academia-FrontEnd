@@ -7,14 +7,13 @@ import { useNavigate } from "react-router-dom";
 export function RegisterForm() {
     //useRef para hacer referencias a elementos Html
     const errorRef = useRef(null)
-    // useState para agregar funcionalidades a los componentes
     //formData sera la variable donde guardaremos los datos del usuario que se registra
     const [formData, setFormData] = useState({
         userName: "",
         email: "",
         password: "",
-        phoneNumber: "",  //esto lo añadí
-        address: ""       //esto lo añadí
+        phoneNumber: "", 
+        address: ""       
     })
     //Evento para capturar los datos del formulario y guardarlos dentro de formData
     const handleChange = (event) => {
@@ -25,13 +24,12 @@ export function RegisterForm() {
     }
     const navegar = useNavigate()
 
-    const rol= "student"  //Esto es lo nuevo
+    const rol= "student"  
     //Evento que usamos para hacer la request al servidor para registrar un usuario
     const handleSubmit = async (event) => {
         event.preventDefault();
-        registerCall(formData, rol)  //He añadido rol
+        registerCall(formData, rol) 
             .then(data => {
-                // console.log(data)
                 if (!data) {
                     errorRef.current.style.display = "block"
                 }
@@ -45,7 +43,6 @@ export function RegisterForm() {
         <div className="container d-flex justify-content-center align-items-center home-container" style={{ minHeight: '80vh' }}>
             <div className="row">
                 <div className="col">
-                    {/* El siguiente div es para el error al registrarse */}
                     <div className="container bg-danger" ref={errorRef} style={{ display: "none" }}>This user already exists</div>
                     {/* Formulario de registro, importamos AuthInput desde componentes */}
                     <div className="card p-4">

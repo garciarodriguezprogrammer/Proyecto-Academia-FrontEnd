@@ -9,9 +9,9 @@ import { Classes } from "../Classes/Classes"
 import { Inscriptions } from "../inscriptions/Inscriptions"
 import { AdminClasses } from "../adminClasses/adminClasses"
 import { CreateClasses } from "../adminClasses/CreateClasses"
-import { AllUsers } from "../AllUsers/AllUsers" //Esto es nuevo
-import { Profile } from "../Profile/Profile" //Esto es nuevo
-import { UpdateUser } from "../Profile/UpdateUser" //Esto es nuevo
+import { AllUsers } from "../AllUsers/AllUsers" 
+import { Profile } from "../Profile/Profile" 
+import { UpdateUser } from "../Profile/UpdateUser" 
 import { TeacherClasses } from "../Classes/TeacherClasses"
 import { UpdateClass } from "../adminClasses/UpdateClass"
 import { FirstView } from "../firstView/FirstView"
@@ -24,7 +24,7 @@ export const Body = () => {
     return (
         <>
             <Routes>
-                <Route path="*" element={<Navigate to="/home" />} /> {/* //Para que cada vez que se indique una ruta distinta de las que tenemos aquí listadas, nos dirija a la página */}
+                <Route path="*" element={<Navigate to="/home" />} /> 
                 <Route path="/" element={<FirstView/>}></Route>
                 <Route path="/home" element={<Home />} />
                 <Route path="/login/" element={<LoginForm />}></Route>

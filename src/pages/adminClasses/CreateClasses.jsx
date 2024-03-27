@@ -12,7 +12,7 @@ export const CreateClasses = () => {
     const [successMessage, setSuccessMessage] = useState("")
     const [startTime, setStartTime] = useState('');
     const [endTime, setEndTime] = useState('');
-    const [teacherId, setTeacherId] = useState(); // Supongamos que el ID del profesor es 1, puedes cambiarlo según tus necesidades
+    const [teacherId, setTeacherId] = useState(); 
     const [teachers, setTeachers] = useState([])
     const [userId, setUserId] = useState("")
     const navegar = useNavigate()
@@ -26,8 +26,6 @@ export const CreateClasses = () => {
                     const data = await getTeacherIdCall(userId, token)
                     setTeacherId(data.id)
                     setIsLoading(false)
-                    console.log("Nuevo " + teacherId)
-                    console.log("Esto es nuevo " + data.id)
                 } catch (error) {
                     setIsLoading(false)
                     console.error("Error recuperando el teacherId")
@@ -48,22 +46,17 @@ export const CreateClasses = () => {
         e.preventDefault();
         if (teacherId) { 
             setIsLoading(true)
-            try {
-                console.log("esto es teacher id " + teacherId)
+            try {               
                 // Llama a la función para crear la clase con los datos del estado
                 const res = await createClassCall(token, { dance, day, startTime, endTime, teacherId });
-                console.log(res)
                 
                 setSuccessMessage("Su inscripción se ha realizado exitosamente")
                 setTimeout(() => {
                     navegar("/adminClasses")
                 }, 3000)
-                
-                // Lógica adicional después de crear la clase, como redirigir a otra página o mostrar un mensaje de éxito
             } catch (error) {
                 console.error('Error al crear la clase:', error);
                 setIsLoading(false)
-                // Lógica adicional en caso de error, como mostrar un mensaje de error al usuario
             }
         } else {
             console.log("Error al recuperar el teacherId")

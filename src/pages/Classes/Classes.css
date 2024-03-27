@@ -7,8 +7,7 @@
     transition: transform 0.3s, box-shadow 0.3s;
     margin-bottom: 2rem; /* Margen inferior para separar las tarjetas */
   }
-  
-  /* Estilos al pasar el ratón por encima */
+
   .otherCard:hover {
     transform: scale(1.05);
     box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
@@ -30,9 +29,8 @@
     color: #666;
   } 
   
-  /* Media queries para hacer las tarjetas responsivas */
   @media (max-width: 768px) {
     .card {
-      width: 100%; /* Ajustar el ancho de la tarjeta al 100% en dispositivos pequeños */
+      width: 100%; 
     }
   }
