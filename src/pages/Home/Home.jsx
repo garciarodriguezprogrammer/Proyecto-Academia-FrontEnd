@@ -32,7 +32,7 @@ export const Home = () => {
                             <div className="hover-effect imgDiv">
                                 <img src="/img/Danza Contemporánea.jpg" alt="Imagen 2" className="img-fluid" />
                                 <div className="overlay">
-                                    <p>Danza Contemporánea: Explora tu creatividad sin límites</p>
+                                    <p>Danza Contemporánea:<br/> Explora tu creatividad sin límites</p>
                                 </div>
                             </div>
                         </div>

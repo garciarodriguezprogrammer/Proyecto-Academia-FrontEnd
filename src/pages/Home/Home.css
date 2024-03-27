@@ -80,11 +80,7 @@
 
 .overlay p {
     margin: 0;
-    font-size: 18px;
-}
-
-.overlay p:hover {
-    text-decoration: underline;
+    font-size: 70%;
 }
 
 .hover-effect:hover .overlay {
