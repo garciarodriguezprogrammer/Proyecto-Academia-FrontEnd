@@ -49,7 +49,7 @@ export function RegisterForm() {
                         <form onSubmit={handleSubmit}>
                             <div className="mb-3"><AuthInput type={"text"} placeholder={"Name"} name={"userName"} handler={handleChange} /></div>
                             <div className="mb-3"><AuthInput type={"text"} placeholder={"Email"} name={"email"} handler={handleChange} /></div>
-                            <div className="mb-3"><AuthInput type={"text"} placeholder={"Password"} name={"password"} handler={handleChange} /></div>
+                            <div className="mb-3"><AuthInput type={"password"} placeholder={"Password"} name={"password"} handler={handleChange} /></div>
                             <div className="mb-3"><AuthInput type={"text"} placeholder={"PhoneNumber"} name={"phoneNumber"} handler={handleChange} /></div>
                             <div className="mb-3"><AuthInput type={"text"} placeholder={"Address"} name={"address"} handler={handleChange} /></div>
                             {/* Evento para envío de formularios */}
