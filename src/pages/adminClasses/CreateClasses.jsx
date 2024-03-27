@@ -50,7 +50,7 @@ export const CreateClasses = () => {
                 // Llama a la función para crear la clase con los datos del estado
                 const res = await createClassCall(token, { dance, day, startTime, endTime, teacherId });
                 
-                setSuccessMessage("Su inscripción se ha realizado exitosamente")
+                setSuccessMessage("La clase se ha creado exitosamente")
                 setTimeout(() => {
                     navegar("/adminClasses")
                 }, 3000)
