@@ -30,7 +30,7 @@ export const UpdateClass = () => {
         e.preventDefault();
         updateClassCall(token, formData, id)
             .then((res) => {
-                setSuccessMessage("Su inscripción se ha modificado exitosamente")
+                setSuccessMessage("La clase se ha modificado exitosamente")
                 setTimeout(() => {
                     navegar("/adminClasses")
                 }, 3000)
