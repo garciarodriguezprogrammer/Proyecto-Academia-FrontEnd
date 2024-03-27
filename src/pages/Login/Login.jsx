@@ -68,7 +68,7 @@ export function LoginForm() {
                                     className="form-control"
                                 />
                             </div>
-                            <button type="submit" className=" btn-primary w-100">Login</button>
+                            <button type="submit" className=" btn-primary w-100">Iniciar sesión</button>
                         </form>
                     </div>
                 </div>

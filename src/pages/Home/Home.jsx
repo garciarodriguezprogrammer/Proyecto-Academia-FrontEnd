@@ -34,8 +34,8 @@ export const Home = () => {
             </div>
             <div className="row mt-4">
                 <div className="col-md-12 text-center">
-                    <Link to="/login" className="btn btn-primary mr-md-2 mr-0 mb-2 mb-md-0">Login</Link>
-                    <Link to="/register" className="btn btn-secondary">Register</Link>
+                    <Link to="/login" className="btn btn-primary mr-md-2 mr-0 mb-2 mb-md-0">Iniciar sesión</Link>
+                    <Link to="/register" className="btn btn-secondary">Registrarse</Link>
                 </div>
             </div>
             <div className="row mt-4">

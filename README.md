@@ -14,12 +14,12 @@
 </details>
 
 ## Objetivo
-Este proyecto forma parte del camino de aprendizaje dentro del programa de formación en Full Stack Developer impartido por GeeksHub Academy. Es una oportunidad para explorar y desarrollar habilidades en diversas áreas de la tecnología. 
+Este proyecto marca el cierre del programa de formación en Desarrollo Full Stack impartido por GeeksHub Academy. Representa una valiosa oportunidad para explorar y fortalecer habilidades en diversas áreas tecnológicas. 
 
-Este proyecto constituye la aplicación FronEnd de un estudio de tatuajes, construido como complemento al desarrollo de una aplicación [BackEnd](https://github.com/garciarodriguezprogrammer/Proyecto-Color_Tattoo.git) desarrollada en una actividad anterior.
+El proyecto constituye la aplicación FronEnd de una academia de baile, llevado a cabo como complemento del desarrollo de una aplicación [BackEnd](https://github.com/garciarodriguezprogrammer/Proyecto-Academia-BackEnd.git) desarrollada paralelamente.
 
 ## Sobre el proyecto
-Este repositorio representa una fase fundamental del proyecto de desarrollar una aplicación dedicada a la gestión de un estudio de tatuajes. Aquí nos concentramos en la construcción del frontend, una pieza clave que se encargará de ofrecer una experiencia de usuario intuitiva.
+Este repositorio representa una fase fundamental del proyecto de desarrollar una aplicación dedicada a la gestión de una academia de baile, representa la aplicación FronEnd, una pieza clave que se encargará de ofrecer una experiencia de usuario intuitiva. En la aplicación existen diferentes funcionalidades dependiendo del rol que ostentes, y para acceder es necesario estar registrado.
 
 
 ## Stack

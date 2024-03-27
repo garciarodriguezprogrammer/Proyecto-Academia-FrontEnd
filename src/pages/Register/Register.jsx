@@ -56,7 +56,7 @@ export function RegisterForm() {
                             <div className="mb-3"><AuthInput type={"text"} placeholder={"PhoneNumber"} name={"phoneNumber"} handler={handleChange} /></div>
                             <div className="mb-3"><AuthInput type={"text"} placeholder={"Address"} name={"address"} handler={handleChange} /></div>
                             {/* Evento para envío de formularios */}
-                            <div className="mb-3"><button type="submit" className="btn btn-primary">Register</button></div>
+                            <div className="mb-3"><button type="submit" className="btn btn-primary">Registrarse</button></div>
                         </form>
                     </div>      
                 </div>
