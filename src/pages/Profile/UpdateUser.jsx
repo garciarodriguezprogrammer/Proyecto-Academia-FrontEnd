@@ -39,7 +39,7 @@ import { UpdateUserCall } from "../../services/apiCalls"
 
     return(
         <>
-        <div className="container">
+        <div className="container home-container">
             <div className="column">
                 <form onSubmit={handleUpdate} action="">
                     <input type="text" onChange={handleChange} className="form-control" name="userName" defaultValue={user.userName}/>

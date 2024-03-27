@@ -26,7 +26,7 @@ export const Profile = () => {
 
     return (
         <>
-            <div className="container d-flex justify-content-center align-items-center" style={{ height: '100vh' }}>
+            <div className="container d-flex justify-content-center align-items-center home-container" style={{ height: '100vh' }}>
                 <div>
                     {
                         datos ? (

@@ -43,7 +43,7 @@ export function LoginForm() {
 
     }
     return (
-        <div className="container d-flex justify-content-center align-items-center" style={{ height: '100vh' }}>
+        <div className="container d-flex justify-content-center align-items-center home-container" style={{ height: '100vh' }}>
             <div className="row">
                 <div className="col">
                     <p className="bg-danger" ref={errorRef} style={{ display: "none" }}>Your email or password is wrong</p>

@@ -42,7 +42,7 @@ export function RegisterForm() {
     }
 
     return (
-        <div className="container d-flex justify-content-center align-items-center" style={{ minHeight: '80vh' }}>
+        <div className="container d-flex justify-content-center align-items-center home-container" style={{ minHeight: '80vh' }}>
             <div className="row">
                 <div className="col">
                     {/* El siguiente div es para el error al registrarse */}
