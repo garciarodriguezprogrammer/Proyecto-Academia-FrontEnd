@@ -6,7 +6,92 @@
     height: 100vh;
 }
 
+.home-contain {
+    background-image: url('/img/circle2.jpg'); /* Reemplaza 'ruta/de/la/imagen.jpg' por la ruta de tu imagen de fondo */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
 .title {
     color: white; /* Color del texto */
     padding-top: 20vh; /* Espacio vertical para centrar el texto */
 }
+
+/* Estilos generales */
+.home-container {
+    padding: 20px;
+}
+
+/* Estilos para los botones */
+.btn-primary {
+    background-color: #be255d;
+    border-color: #9e0b52;
+}
+
+.btn-secondary {
+    background-color: #b71a59;
+    border-color: #6c757d;
+}
+
+.btn-primary:hover {
+    background-color: #d3c4c4;
+    border-color: #ebeff4;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+}
+
+/* Estilos para los divs con imagen y texto superpuesto */
+.hover-effect {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.6s;
+}
+
+.hover-effect:hover {
+    transform: scale(1.35);
+}
+
+.hover-effect img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    opacity: 0;
+    transition: opacity 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.overlay p {
+    margin: 0;
+    font-size: 18px;
+}
+
+.overlay p:hover {
+    text-decoration: underline;
+}
+
+.hover-effect:hover .overlay {
+    opacity: 1;
+}
+
+.imgDiv {
+    border: 1.5px solid white; /* Borde blanco de 1 píxel */
+    border-radius: 7px; /* Esquinas redondeadas */
+  }
